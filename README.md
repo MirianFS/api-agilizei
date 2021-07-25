@@ -17,7 +17,7 @@ Lembre-se de avaliar e adicionar mais asserções conforme achar necessário ;)
 ```
 
 ## API
-http://treinamento-api.herokuapp.com/apidoc/index.html
+link da documentação da API do desafio: http://treinamento-api.herokuapp.com/apidoc/index.html
 ## Configuração do Ambiente
 
 ### Insomnia
@@ -25,7 +25,9 @@ http://treinamento-api.herokuapp.com/apidoc/index.html
 Baixe insomnia no site
 https://insomnia.rest/download
 
-Importe o arquivo [link/gif show de bola do arquivo]
+Importe o arquivo
+![Insomnia-import](https://user-images.githubusercontent.com/26276025/126887987-86a2ee25-b584-4e36-8cdd-721a5a19ed73.gif)
+
 
 ### Cypress
 Crie a pasta onde ficará o projeto
@@ -59,7 +61,8 @@ module.exports = (on, config) => {
 ```
 
 Agora é só definir como será filtrado os testes, colocando  no titulo do teste `@filtro`
-imagem de exemplo
+
+![image](https://user-images.githubusercontent.com/26276025/126888024-e5ba08fb-ef17-4629-9fc5-87b2b24c9b1e.png)
 
 
 ```
@@ -85,7 +88,8 @@ link da documentação: https://github.com/bahmutov/cypress-select-tests
 ```
 
 Agora é só definir como será filtrado os testes, colocando `{tags: 'filtro'}` após o titulo
-imagem de exemplo
+
+![image](https://user-images.githubusercontent.com/26276025/126888005-3b11a794-06aa-431e-b64f-e924ad28507f.png)
 
 Para executar os testes conforme o filtro definidos:
 
