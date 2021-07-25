@@ -113,3 +113,9 @@ Para executar todos os testes que não são criticos e pequenos
 
 
 link da documentação: https://github.com/cypress-io/cypress-grep#
+
+## Videos da excução dos testes
+
+https://user-images.githubusercontent.com/26276025/126888348-0a7dc6ee-8da8-4346-8cc4-c3a0397e8711.mp4
+
+https://user-images.githubusercontent.com/26276025/126888352-d73fe744-19b8-45fb-b197-318b9bb3be95.mp4
