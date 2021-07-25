@@ -30,7 +30,7 @@ class Assertions {
     }
     
     shouldDurationByFast(response){
-        expect(response.duration, 'duration').lessThan(900);
+        expect(response.duration, 'duration').lessThan(2000);
     }
     
 }

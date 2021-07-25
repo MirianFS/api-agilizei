@@ -42,7 +42,7 @@ Abra o terminal no caminho da pasta criada
     npm install -D bahmutov/cy-spok
 ```
 
-https://github.com/bahmutov/cy-spok
+link da documentação: https://github.com/bahmutov/cy-spok
 
 ### cypress-select-tests
 
@@ -58,43 +58,54 @@ module.exports = (on, config) => {
 }
 ```
 
-npx cypress open --env grep=@healthcheck
+Agora é só definir como será filtrado os testes, colocando  no titulo do teste `@filtro`
+imagem de exemplo
 
 
-https://github.com/bahmutov/cypress-select-tests
+```
+    npx cypress open --env grep=@functional
+```
+
+link da documentação: https://github.com/bahmutov/cypress-select-tests
 
 
 
 ### cypress-grep
 
 ```
-yarn add -D cypress-grep
+    yarn add -D cypress-grep
 ```
 ```
-// cypress/plugins/index.js
-module.exports = (on, config) => {
-  // optional: register cypress-grep plugin code
-  // https://github.com/bahmutov/cypress-grep
-  require('cypress-grep/src/plugin')(config)
-}
+    // cypress/plugins/index.js
+    module.exports = (on, config) => {
+    // optional: register cypress-grep plugin code
+    // https://github.com/bahmutov/cypress-grep
+    require('cypress-grep/src/plugin')(config)
+    }
 ```
 
-no nome do it
-npx cypress run --env grep=critica
+Agora é só definir como será filtrado os testes, colocando `{tags: 'filtro'}` após o titulo
+imagem de exemplo
 
-com tags no it
-npx cypress run --env grepTags=critico
+Para executar os testes conforme o filtro definidos:
 
-todos os testes que são criticos ou pequenos
-npx cypress run --env grepTags="critico pequeno"
+testes com um filtro
+```
+    npx cypress run --env grepTags=critico
+```
 
-todos os testes que são criticos e pequenos
-npx cypress run --env grepTags="critico+pequeno"
+Para executar todos os testes que são criticos ou pequenos
+```
+    npx cypress run --env grepTags="critico pequeno"
+```
+Para executar todos os testes que são criticos e pequenos
+```
+    npx cypress run --env grepTags="critico+pequeno"
+```
+Para executar todos os testes que não são criticos e pequenos
+```
+    npx cypress run --env grepTags="-pequeno"
+```
 
-todos os testes que não são criticos e pequenos
-npx cypress run --env grepTags="-pequeno"
 
-
-
-
-https://github.com/cypress-io/cypress-grep# api-agilizei
+link da documentação: https://github.com/cypress-io/cypress-grep#

@@ -54,12 +54,60 @@ class Requests {
         })
     }
 
+    updateBookingWithoutTokenInvalid(response){
+        const id = response.body.bookingid
+
+        return cy.request({
+            method: 'PUT',
+            url: `booking/${id}`,
+            headers: {
+                Cookie: `token=invalid`
+            },
+            body: {
+                "firstname": "Jim",
+                "lastname": "James",
+                "totalprice": 111,
+                "depositpaid": false,
+                "bookingdates": {
+                  "checkin": "2020-01-01",
+                  "checkout": "2020-01-02"
+                },
+                "additionalneeds": "Lunch"
+              },
+              failOnStatusCode: false
+        })
+    }
+
     updateBooking(response){
         const id = response.body.bookingid
 
         return cy.request({
             method: 'PUT',
             url: `booking/${id}`,
+            headers: {
+                Cookie: `token=${Cypress.env('token')}`
+            },
+            body: {
+                "firstname": "Jim",
+                "lastname": "James",
+                "totalprice": 111,
+                "depositpaid": false,
+                "bookingdates": {
+                  "checkin": "2020-01-01",
+                  "checkout": "2020-01-02"
+                },
+                "additionalneeds": "Lunch"
+              },
+              failOnStatusCode: false
+        })
+    }
+
+    updateBookingInexistente(response){
+        const id = response.body.bookingid
+
+        return cy.request({
+            method: 'PUT',
+            url: `booking/-1`,
             headers: {
                 Cookie: `token=${Cypress.env('token')}`
             },
@@ -105,6 +153,43 @@ class Requests {
             url: `booking/${id}`,
             headers: {
                 Cookie: `token=${Cypress.env('token')}`
+            }, failOnStatusCode: false
+
+        })
+    }
+
+    deleteBookingInexistente(response){
+        const id = response.body.bookingid
+
+        return cy.request({
+            method: 'DELETE',
+            url: `booking/-1`,
+            headers: {
+                Cookie: `token=${Cypress.env('token')}`
+            }, failOnStatusCode: false
+
+        })
+    }
+
+    deleteBookingSemToken(response){
+        const id = response.body.bookingid
+
+        return cy.request({
+            method: 'DELETE',
+            url: `booking/${id}`,
+            failOnStatusCode: false
+
+        })
+    }
+
+    deleteBookingInvalido(response){
+        const id = response.body.bookingid
+
+        return cy.request({
+            method: 'DELETE',
+            url: `booking/-1`,
+            headers: {
+                Cookie: `token=invalido`
             }, failOnStatusCode: false
 
         })
