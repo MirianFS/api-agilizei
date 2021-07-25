@@ -5,33 +5,34 @@ on:
     branches: [main]
     
 jobs:
-  cypress-run:
-    runs-on: ubuntu-16.04
+  build:
+    runs-on: ubuntu-lastest
+    
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
-      - name: Checkout
-        uses: actions/checkout/@v1
-      - name: Instalar as dependencias do server
-        uses: bahmutov/npm-install@v1
+    # Checkout do codigo do projeto
+      - uses: actions/checkout/@v2
+      
+      # Setup do Node.JS
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.3.0
         with:
-          working-directory: server
-      - name: Instalar as dependencias do web
-        uses: bahmutov/npm-install@v1
-        with:
-          working-directory: web
-      - name: Component & API & UI Tests
-        uses: cypress-io/github-action@v2
-        with:
-          working-directory: web
-          install: false
-          start: npm run start:ci
-          wait-on: 'http://localhost:3000/' 
-          
+          node-version: ${{matrix.node-version}}
+      
+      # Instalando as dependencias
+      - run: npm install
+      
+      # Executando os testes 
+      - run: npm run test
+
       - name: Upload a screenshots
         uses: actions/upload-artifact@v2.2.0
         if: failure()
         with:
           name: screenshots
-          path: web/cypress/screenshots
+          path: cypress/screenshots
           
       - name: Upload videos
         uses: actions/upload-artifact@v2.2.0
