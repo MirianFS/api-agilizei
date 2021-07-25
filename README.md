@@ -28,7 +28,7 @@ https://insomnia.rest/download
 Importe o arquivo
 ![Insomnia-import](https://user-images.githubusercontent.com/26276025/126887987-86a2ee25-b584-4e36-8cdd-721a5a19ed73.gif)
 
-
+Arquivo importado no [Insomnia](https://github.com/MirianFS/api-agilizei/blob/main/aglz-insomnia-collection.json)
 ### Cypress
 Crie a pasta onde ficará o projeto
 Abra o terminal no caminho da pasta criada
